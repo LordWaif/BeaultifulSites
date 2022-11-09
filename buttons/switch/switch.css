@@ -1,0 +1,79 @@
+body{
+    --und: 6rem;
+    --sw-width: var(--und);
+    --sw-height: calc(var(--und)/2);
+    --diametro: calc(var(--sw-height)*0.8);
+    --mg-circle-base: calc(var(--sw-height)*0.1);
+    --desloc-translate: calc(var(--sw-width) - var(--diametro) - var(--mg-circle-base)*2);
+    
+    /*To edit */
+    --color-left-side: red;
+    --color-right-side: green;
+
+    --toggle-color-bg: white;
+
+    --togle-content-color-disable: rgb(188, 158, 158);
+    --togle-content-color-able: rgb(138, 187, 135);
+
+    --defult-transition-time: 0.5s;
+    --z-index-base: 0:
+}
+
+.container{
+    background-color: var(--toggle-color-bg);
+    width: fit-content;
+}
+
+.check{
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+.sw{
+    display: block;
+    border-radius: var(--und);
+}
+.sw-size{
+    width: var(--sw-width);
+    height: var(--sw-height);
+}
+
+.sw-bg{
+    background-image: linear-gradient(90deg, var(--color-left-side), var(--color-right-side));
+    z-index: var(--z-index-base);
+}
+
+.sw::after{
+    margin: var(--mg-circle-base);
+    content: "";
+    background-color: white;
+    width: var(--diametro);
+    height: var(--diametro);
+    border-radius: var(--und);
+    display: block;
+    position: absolute;
+    transition: all 0.5s;
+    z-index: calc(var(--z-index-base)+2);
+}
+
+.sw::before{
+    margin: var(--mg-circle-base);
+    width: calc(var(--sw-width)*0.9);
+    height: calc(var(--diametro));
+    background-color: var(--togle-content-color-disable);
+    border-radius: var(--und);
+    display: block;
+    position: absolute;
+    content: "";
+    z-index: calc(var(--z-index-base)+1);
+    transition: all var(--defult-transition-time);
+}
+
+.check:checked + .sw:after {
+    transform: translateX(var(--desloc-translate));
+}
+
+.check:checked + .sw:before {
+    background-color: var(--togle-content-color-able);
+}
