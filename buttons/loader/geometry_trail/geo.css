@@ -3,7 +3,7 @@ body{
     --ld-width: var(--und);
     --ld-height: calc(var(--und)/2);
     --z-index-base: 0;
-    --trail: calc(var(--und)*0.4);
+    --trail: calc(var(--und)*0.8);
 }
 
 .content{
@@ -20,30 +20,28 @@ body{
    border-radius: var(--und);
    width: var(--ld-width);
    height: var(--ld-height);
-   animation: stalker 1s linear infinite;
+   animation: stalker 1s cubic-bezier(.45,.13,.57,.92) infinite;
 }
 
 @keyframes stalker {
     0% { 
-        transform: translateX(0); 
+        transform: rotate(0deg) translateX(0) rotate(0deg); 
         width: var(--ld-height);
+        background-color: rgb(16, 62, 112);
     }
     33% { 
-        transform: translate(calc(var(--trail)),var(--trail)); 
-        background-color: rgb(16, 62, 112);
         width: var(--ld-width);
      }
     50% {
-        transform: translate(0,calc(var(--trail)*2));
+        transform: rotate(-180deg) translate(0,calc(var(--trail)*-2)) rotate(180deg);
         width: var(--ld-height);
     }
     66% {
-        transform: translate(calc(var(--trail)*-1),var(--trail));
-        background-color: rgb(222, 120, 85);
         width: var(--ld-width);
     }
     100% {
-        transform: translateX(0);
+        transform: rotate(-360deg) translateX(0) rotate(360deg);
         width: var(--ld-height);
+        background-color: rgb(222, 120, 85);
     }
   }
