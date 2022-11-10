@@ -1,0 +1,35 @@
+body{
+    --und: 2rem;
+}
+
+.collapse{
+    display: flex;
+    align-items: center;
+    width: var(--und);
+    height: var(--und);
+
+    border-radius: calc(var(--und)*0.2);
+    padding: 5px;
+    border-color: black;
+}
+
+.bars{
+    width: calc(var(--und)*0.8);
+    height: calc(var(--und)*0.8);
+    color: white;
+    font-size: var(--und);
+    display: flex;
+    align-items: center;
+}
+
+.collapse:hover{
+    background-color: rgb(65, 65, 65);
+    border-color: rgb(65, 65, 65);
+}
+.collapse:hover + .bars {
+    transform: translateX(10px);
+}
+
+.collapse-bg{
+    background-color: black;
+}
