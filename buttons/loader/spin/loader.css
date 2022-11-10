@@ -1,0 +1,26 @@
+body{
+    --und: 6rem;
+    --ch-width: var(--und);
+    --ch-height: var(--und);
+    --bg-loader-color: gray;
+    --spin-loader-color: rgb(19, 15, 67);
+}
+
+.loader{
+    display: block;
+    width: var(--ch-width);
+    height: var(--ch-height);
+    border: calc(var(--ch-height)*0.1) solid var(--bg-loader-color);
+    border-top: calc(var(--ch-height)*0.1) solid var(--spin-loader-color);
+    border-radius: 50%;
+    animation: spin 2s linear infinite;
+}
+
+.loader-bg{
+    background-color: transparent;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

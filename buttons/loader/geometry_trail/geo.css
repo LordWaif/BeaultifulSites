@@ -1,0 +1,49 @@
+body{
+    --und: 1rem;
+    --ld-width: var(--und);
+    --ld-height: calc(var(--und)/2);
+    --z-index-base: 0;
+    --trail: calc(var(--und)*0.4);
+}
+
+.content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.geo{
+   position: relative;
+   background-color: black; 
+   border-radius: var(--und);
+   width: var(--ld-width);
+   height: var(--ld-height);
+   animation: stalker 1s linear infinite;
+}
+
+@keyframes stalker {
+    0% { 
+        transform: translateX(0); 
+        width: var(--ld-height);
+    }
+    33% { 
+        transform: translate(calc(var(--trail)),var(--trail)); 
+        background-color: rgb(16, 62, 112);
+        width: var(--ld-width);
+     }
+    50% {
+        transform: translate(0,calc(var(--trail)*2));
+        width: var(--ld-height);
+    }
+    66% {
+        transform: translate(calc(var(--trail)*-1),var(--trail));
+        background-color: rgb(222, 120, 85);
+        width: var(--ld-width);
+    }
+    100% {
+        transform: translateX(0);
+        width: var(--ld-height);
+    }
+  }
